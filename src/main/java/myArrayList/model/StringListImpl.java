@@ -46,19 +46,25 @@ public class StringListImpl implements StringList {
             this.array[size] = item;
             return this.array[size];
         } else {
-            String[] newArr = new String[array.length+1];
+            String[] newArr = new String[array.length*2];
             System.arraycopy(this.array, 0, newArr, 0, this.size);
             this.array = newArr;
             return this.array[size] = item;
         }
     }
 
-    // Добавление элемента на определенную позицию списка.
+                                                            // Добавление элемента на определенную позицию списка.
     // Если выходит за пределы фактического количества элементов или массива, выбросить исключение.
     // Вернуть добавленный элемент в качестве результата выполнения.
     @Override
     public String add(int index, String item) {
+        isThereIndex(index);
+        isThereNull(item);
+        size++;
+        String[] newArray = new String[array.length+1];
+        System.arraycopy(this.array, index + 1, array, 0, size);
 
+        System
 
         return null;
     }
@@ -207,6 +213,7 @@ public class StringListImpl implements StringList {
     public String toString() {
         return "StringListImpl{" +
                 "array=" + Arrays.toString(array) +
+         //       "array=" + Arrays.toString(Arrays.copyOf(array, size)) +
                 '}';
     }
 }
