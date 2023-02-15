@@ -7,12 +7,21 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        StringListImpl stringListImpl1 = new StringListImpl();
-        StringListImpl stringListImpl2 = new StringListImpl(15);
+        StringListImpl stringListImpl = new StringListImpl();
+//        StringListImpl stringListImpl = new StringListImpl(15);
 
-        /*
-        Напишите реализацию этого интерфейса, выполнив все его методы. В качестве хранилища используйте массив.
-    В конструкторе должен задаваться размер массива внутри. */
+        System.out.println(stringListImpl.add("вперед"));
+        System.out.println(stringListImpl.add("Труба"));
+        System.out.println(stringListImpl.add("Зовет"));
+        System.out.println(stringListImpl.add("Пора"));
+        System.out.println(stringListImpl.add("Двигаться"));
+        System.out.println(stringListImpl.add("вперед"));
+
+        System.out.println(stringListImpl);
+        System.out.println("______________________________________");
+
+
+
 
 
 
