@@ -18,13 +18,13 @@ public class Main {
         System.out.println(stringListImpl.add("Двигаться"));
         System.out.println(stringListImpl.add("вперед"));
         System.out.println(stringListImpl.add("Труба"));
-//        System.out.println(stringListImpl.add("Зовет"));
-//        System.out.println(stringListImpl.add("Пора"));
-//        System.out.println(stringListImpl.add("Двигаться"));
+        System.out.println(stringListImpl.add("Зовет"));
+        System.out.println(stringListImpl.add("Пора"));
+        System.out.println(stringListImpl.add("Двигаться"));
 
-//        System.out.println(stringListImpl.add("вперед"));
-//        System.out.println(stringListImpl.add("Пора"));
-
+        System.out.println(stringListImpl.add("вперед"));
+        System.out.println(stringListImpl.add("Пора"));
+//
 //        System.out.println(stringListImpl.add(null));
 //        System.out.println(stringListImpl.add(""));
 
@@ -38,24 +38,45 @@ public class Main {
         System.out.println("Кол-во элементов " + stringListImpl.size());
         System.out.println("______________________________________");
 
-        System.out.println("Замена " + "stringListImpl[2]" + " на " + stringListImpl.set(2, "EuaEua"));
+        System.out.println("Замена " + stringListImpl.get(2) + " на " + stringListImpl.set(2, "EuaEua"));
 
         System.out.println(stringListImpl);
         System.out.println("Кол-во элементов " + stringListImpl.size());
         System.out.println("______________________________________");
 
+        System.out.println(stringListImpl.remove("Труба"));
+//        System.out.println(stringListImpl.remove("Та"));
+        System.out.println(stringListImpl.remove(6));
+
+        System.out.println(stringListImpl);
+        System.out.println("Кол-во элементов " + stringListImpl.size());
+        System.out.println("______________________________________");
+
+        System.out.println(stringListImpl.contains("Двигаться"));
+        System.out.println(stringListImpl.contains("Двиься"));
+
+        System.out.println("______________________________________");
+
+        System.out.println(stringListImpl.indexOf("Двигаться"));
+        System.out.println(stringListImpl.indexOf("Двиься"));
+
+        System.out.println("______________________________________");
+
+        System.out.println(stringListImpl.lastIndexOf("Двигаться"));
+        System.out.println(stringListImpl.lastIndexOf("Двиься"));
+
+        System.out.println("______________________________________");
+
+        String[] stringListImpl2 = stringListImpl.toArray();
+        System.out.println(Arrays.toString(stringListImpl2));
+
+        System.out.println("______________________________________");
+
+        stringListImpl.clear();
+
+        System.out.println(stringListImpl.isEmpty());
 
 
-
-   /* Список не должен добавлять или хранить в себе null. Т. е. в случае удаления элемента нужно смещать все элементы на ячейку влево,
-     а при добавлении в середину или начало — на ячейку вправо.
-
-    По желанию можно реализовать расширение массива.
-
-    Рекомендуется написать свои исключения и выбрасывать их в тех ситуациях, которые описаны в интерфейсе.
-    Если в какой-то из методов в качестве параметра приходит null, выбросить исключение.
-
-    */
 
 
 

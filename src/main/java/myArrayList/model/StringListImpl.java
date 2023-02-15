@@ -19,7 +19,6 @@ public class StringListImpl implements StringList {
     }
 
     public StringListImpl(int initialCapacity) {
-        //isThereIndex(initialCapacity);
         this.array = new String[initialCapacity];
     }
 
@@ -88,84 +87,68 @@ public class StringListImpl implements StringList {
         return array[index];
     }
 
-    // Удаление элемента.
+                                                            // Удаление элемента.
     // Вернуть удаленный элемент или исключение, если подобный
     // элемент отсутствует в списке.
     @Override
     public String remove(String item) {
-        /*
-        Objects.checkIndex(index, size);
-        final Object[] es = elementData;
-
-        @SuppressWarnings("unchecked") E oldValue = (E) es[index];
-        fastRemove(es, index);
-
-        return oldValue;
-         */
-        return null;
+        isThereNull(item);
+        try {
+            for (int i = 0; i < size; ++i) {
+                if (item.equals(array[i])) {
+                    System.arraycopy(array, (i + 1), array, i, size - i+1);
+                    size--;
+                    return item;
+                }
+            } throw new FoundNullException("Нет такого в массиве");
+        } catch (FoundNullException e) { throw new FoundNullException("Нет такого в массиве");
+        }
     }
 
-    // Удаление элемента по индексу.
+                                                                // Удаление элемента по индексу.
     // Вернуть удаленный элемент или исключение, если подобный
     // элемент отсутствует в списке.
     @Override
     public String remove(int index) {
-       /* modCount++;
-        final int newSize;
-        if ((newSize = size - 1) > i)
-            System.arraycopy(es, i + 1, es, i, newSize - i);
-        es[size = newSize] = null;
-
-        */
-        return null;
+        isThereIndex(index);
+        System.arraycopy(array, (index + 1), array, index, size - index+1);
+        size--;
+        return array[index];
     }
 
-    // Проверка на существование элемента.
+                                                            // Проверка на существование элемента.
     // Вернуть true/false;
     @Override
     public boolean contains(String item) {
+        for (int i = 0; i < size; ++i) {
+            if (item.equals(array[i])) {
+                return true;
+            }
+        }
         return false;
     }
 
-    // Поиск элемента.
+                                                                // Поиск элемента.
     // Вернуть индекс элемента или -1 в случае отсутствия.
     @Override
     public int indexOf(String item) {
-       /* Object[] es = elementData;
-        if (o == null) {
-            for (int i = start; i < end; i++) {
-                if (es[i] == null) {
-                    return i;
-                }
+        for (int i = 0; i < size; ++i) {
+            if (item.equals(array[i])) {
+                return i;
             }
-        } else {
-            for (int i = start; i < end; i++) {
-                if (o.equals(es[i])) {
-                    return i;
-                }
-            }
-        }*/
+        }
         return -1;
     }
 
-    // Поиск элемента с конца.
+                                                        // Поиск элемента с конца.
     // Вернуть индекс элемента или -1 в случае отсутствия.
     @Override
     public int lastIndexOf(String item) {
-       /* Object[] es = elementData;
-        if (o == null) {
-            for (int i = end - 1; i >= start; i--) {
-                if (es[i] == null) {
-                    return i;
-                }
+        for (int i = size; i > 0; --i) {
+            if (item.equals(array[i])) {
+                return i;
             }
-        } else {
-            for (int i = end - 1; i >= start; i--) {
-                if (o.equals(es[i])) {
-                    return i;
-                }
-            }
-        }*/
+        }
         return -1;
     }
 
@@ -200,7 +183,7 @@ public class StringListImpl implements StringList {
                                                  // Создать новый массив из строк в списке и вернуть его.
     @Override
     public String[] toArray() {
-        return Arrays.copyOf(array, size);
+        return Arrays.copyOf(array, size+1);
 
     }
 
