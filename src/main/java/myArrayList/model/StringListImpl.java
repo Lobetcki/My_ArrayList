@@ -190,17 +190,18 @@ public class StringListImpl implements StringList {
                                                         // Сравнить текущий список с другим.
     // Вернуть true/false или исключение, если передан null.
     @Override
-    public boolean equals(StringList otherList) {
-        isThereNull(otherList.toString());
-        if (size != otherList.size()) {
-            return false;
-        }
-        for (int i = 0; i < size; i++) {
-            if (array[1] != otherList.get(i)) {
+    public boolean equals(StringListImpl otherList) {
+        try {
+            if (size != otherList.size()) {
                 return false;
             }
-        }
-        return true;
+            for (int i = 0; i < size; i++) {
+                if (array[i] != otherList.get(i)) {
+                    return false;
+                }
+            } return true;
+
+        } catch (FoundNullException e) { throw new FoundNullException(" Список отсутствует "); }
     }
 
     @Override

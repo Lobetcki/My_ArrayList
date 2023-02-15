@@ -68,7 +68,16 @@ public class Main {
         System.out.println("______________________________________");
 
         String[] stringListImpl2 = stringListImpl.toArray();
+
         System.out.println(Arrays.toString(stringListImpl2));
+
+        System.out.println("______________________________________");
+
+        StringListImpl stringListImpl3 = stringListImpl;
+        System.out.println((stringListImpl3));
+
+        System.out.println(stringListImpl.equals(stringListImpl3));
+        System.out.println(stringListImpl3.equals(stringListImpl2));
 
         System.out.println("______________________________________");
 
