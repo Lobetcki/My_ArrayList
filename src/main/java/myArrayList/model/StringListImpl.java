@@ -13,7 +13,7 @@ public class StringListImpl implements StringList {
     private static final int DEFAULT_CAPACITY = 10;
     private String[] array;
     private int size = -1;
-                                                        // КОНСТТРУКТОРЫ
+                                                                // КОНСТТРУКТОРЫ
     public StringListImpl() {
         this.array = new String[DEFAULT_CAPACITY];
     }
@@ -23,34 +23,42 @@ public class StringListImpl implements StringList {
         this.array = new String[initialCapacity];
     }
 
-                                    // Проверка на Null
+                                                                // Проверка на Null
     private void isThereNull(String item) {
-        if (item.equals(null) || item == "")
+        if (item == null || item == "")
             throw new FoundNullException("Вы не ввели ни одной буквы");
     }
-                                    // Проверка на наличие индекса
+                                                                 // Проверка на наличие индекса
     private void isThereIndex(int index) {
         if (index > size || index < 0)
             throw new IndexNotFoundException("Index: "+index+", Size: "+size);
     }
+
 //    private String outOfBoundsMsg(int index) {
 //        return "Index: "+index+", Size: "+size;
 //    }
+
+                                                                 // Увеличение массива
+    private String[] increasingArray() {
+        String[] newArray20 = new String[array.length * 2];
+        size++;
+        if (array.length <= size) {
+            System.arraycopy(array, 0, newArray20, 0, size);
+            array = newArray20;
+        } else {
+
+        }
+        return array;
+    }
+
 
                                 // Добавление элемента. Вернуть добавленный элемент в качестве результата выполнения.
     @Override
     public String add(String item) {
         isThereNull(item);
-        size++;
-        if (array.length >= this.size) {
-            this.array[size] = item;
-            return this.array[size];
-        } else {
-            String[] newArr = new String[array.length*2];
-            System.arraycopy(this.array, 0, newArr, 0, this.size);
-            this.array = newArr;
-            return this.array[size] = item;
-        }
+        increasingArray();
+        array[size] = item;
+        return array[size];
     }
 
                                                             // Добавление элемента на определенную позицию списка.
@@ -60,21 +68,24 @@ public class StringListImpl implements StringList {
     public String add(int index, String item) {
         isThereIndex(index);
         isThereNull(item);
-        size++;
-        String[] newArray = new String[array.length+1];
-        System.arraycopy(this.array, index + 1, array, 0, size);
+        increasingArray();
 
-        System
-
-        return null;
+        String[] newArray = new String[array.length];
+            System.arraycopy(this.array, index, newArray, 0, (size - index));
+            System.arraycopy(newArray, 0, array, index + 1, (size - index));
+            array[index] = item;
+        return array[index];
     }
 
-    // Установить элемент на определенную позицию, затерев существующий.
+                                                    // Установить элемент на определенную позицию, затерев существующий.
     // Выбросить исключение, если индекс больше фактического количества элементов
     // или выходит за пределы массива.
     @Override
     public String set(int index, String item) {
-        return null;
+        isThereNull(item);
+        isThereIndex(index);
+        array[index] = item;
+        return array[index];
     }
 
     // Удаление элемента.
@@ -170,7 +181,7 @@ public class StringListImpl implements StringList {
                                                         // Вернуть фактическое количество элементов.
     @Override
     public int size() {
-        return this.size;
+        return this.size+1;
     }
 
                                                     // Вернуть true, если элементов в списке нет, иначе false.

@@ -3,6 +3,7 @@ package myArrayList;
 import myArrayList.model.StringListImpl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,11 +17,32 @@ public class Main {
         System.out.println(stringListImpl.add("Пора"));
         System.out.println(stringListImpl.add("Двигаться"));
         System.out.println(stringListImpl.add("вперед"));
+        System.out.println(stringListImpl.add("Труба"));
+//        System.out.println(stringListImpl.add("Зовет"));
+//        System.out.println(stringListImpl.add("Пора"));
+//        System.out.println(stringListImpl.add("Двигаться"));
+
+//        System.out.println(stringListImpl.add("вперед"));
+//        System.out.println(stringListImpl.add("Пора"));
+
+//        System.out.println(stringListImpl.add(null));
+//        System.out.println(stringListImpl.add(""));
 
         System.out.println(stringListImpl);
+        System.out.println("Кол-во элементов " + stringListImpl.size());
         System.out.println("______________________________________");
 
+        System.out.println(stringListImpl.add(2,"Еу"));
+        System.out.println(stringListImpl);
 
+        System.out.println("Кол-во элементов " + stringListImpl.size());
+        System.out.println("______________________________________");
+
+        System.out.println("Замена " + "stringListImpl[2]" + " на " + stringListImpl.set(2, "EuaEua"));
+
+        System.out.println(stringListImpl);
+        System.out.println("Кол-во элементов " + stringListImpl.size());
+        System.out.println("______________________________________");
 
 
 
