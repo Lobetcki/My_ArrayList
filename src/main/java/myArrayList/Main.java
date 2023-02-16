@@ -73,11 +73,19 @@ public class Main {
 
         System.out.println("______________________________________");
 
-        StringListImpl stringListImpl3 = stringListImpl;
-        System.out.println((stringListImpl3));
+        StringListImpl stringListImpl3 = new StringListImpl();
+        System.out.println(stringListImpl3.add("Труба"));
+        System.out.println(stringListImpl3.add("Зовет"));
 
-        System.out.println(stringListImpl.equals(stringListImpl3));
-        System.out.println(stringListImpl3.equals(stringListImpl2));
+        StringListImpl stringListImpl4 = new StringListImpl();
+        System.out.println(stringListImpl4.add("Труба"));
+        System.out.println(stringListImpl4.add("Зовет"));
+
+
+        System.out.println(stringListImpl3);
+        System.out.println(stringListImpl4);
+
+        System.out.println("Сравнение " + stringListImpl4.equalsArr(stringListImpl3));
 
         System.out.println("______________________________________");
 
