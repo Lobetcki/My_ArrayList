@@ -62,9 +62,9 @@ public class StringListImpl implements StringList {
         isThereNull(item);
         increasingArray();
 
-        String[] newArray = new String[array.length];
-            System.arraycopy(this.array, index, newArray, 0, (size - index));
-            System.arraycopy(newArray, 0, array, index + 1, (size - index));
+        //String[] newArray = new String[array.length];
+            //System.arraycopy(this.array, index, newArray, 0, (size - index));
+            System.arraycopy(array, index, array, index + 1, (size - index));
             array[index] = item;
         return array[index];
     }
@@ -170,7 +170,7 @@ public class StringListImpl implements StringList {
     @Override
     public void clear() {
         size = 0;
-        this.array = new String[size];
+        array = new String[size];
     }
 
                                                  // Создать новый массив из строк в списке и вернуть его.
@@ -184,7 +184,7 @@ public class StringListImpl implements StringList {
     // Вернуть true/false или исключение, если передан null.
     @Override
     public boolean equalsArr(StringListImpl otherList) {
-       // if (otherList == null) throw new FoundNullException(" Список отсутствует ");
+        if (otherList == null) throw new FoundNullException(" Список отсутствует ");
         if (size+1 == otherList.size()) {
             for (int i = 0; i < size; ++i) {
                 if (!array[i].equals(otherList.get(i))) {

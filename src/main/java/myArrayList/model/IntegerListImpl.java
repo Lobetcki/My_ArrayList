@@ -34,11 +34,11 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                                                                 // Увеличение массива
-    private Integer[] increasingArray() {
+    private Integer[] grow() {
         size++;
         if (array.length <= size) {
-            Integer[] newArray20 = Arrays.copyOf(array, array.length * 2);
-            array = newArray20;
+            array = Arrays.copyOf(array, (int) (array.length * 1.5));
+           // array = newArray20;
         }
         return array;
     }
@@ -46,7 +46,7 @@ public class IntegerListImpl implements IntegerList {
                                             // Добавление элемента. Вернуть добавленный элемент в качестве результата выполнения.
     @Override
     public Integer add(Integer item) {
-        increasingArray();
+        grow();
         array[size] = item;
         return array[size];
     }
@@ -57,7 +57,7 @@ public class IntegerListImpl implements IntegerList {
     @Override
     public Integer add(int index, Integer item) {
         isThereIndex(index);
-        increasingArray();
+        grow();
 
         Integer[] newArray = new Integer[array.length];
         System.arraycopy(array, index, newArray, 0, (size - index));
