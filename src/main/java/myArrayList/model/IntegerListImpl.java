@@ -103,9 +103,9 @@ public class IntegerListImpl implements IntegerList {
                                                                                 // Проверка на существование элемента.
     // Вернуть true/false;
     @Override
-    public boolean contains(Integer item) {
+    public boolean contains(int item) {
         for (int i = 0; i < size; ++i) {
-            if (item.equals(array[i])) {
+            if (item == array[i]) {
                 return true;
             }
         }
@@ -117,7 +117,7 @@ public class IntegerListImpl implements IntegerList {
     @Override
     public int indexOf(Integer item) {
         for (int i = 0; i < size; ++i) {
-            if (item.equals(array[i])) {
+            if (item == array[i]) {
                 return i;
             }
         }
@@ -127,9 +127,9 @@ public class IntegerListImpl implements IntegerList {
                                                                                 // Поиск элемента с конца.
     // Вернуть индекс элемента или -1 в случае отсутствия.
     @Override
-    public int lastIndexOf(Integer item) {
+    public int lastIndexOf(int item) {
         for (int i = size; i >= 0; --i) {
-            if (item.equals(array[i])) {
+            if (item == array[i]) {
                 return i;
             }
         }
@@ -175,7 +175,7 @@ public class IntegerListImpl implements IntegerList {
     // Вернуть true/false или исключение, если передан null.
     @Override
     public boolean equalsArr(IntegerListImpl otherList) {
-        // if (otherList == null) throw new FoundNullException(" Список отсутствует ");
+        if (otherList == null) throw new FoundNullException(" Список отсутствует ");
         if (size+1 == otherList.size()) {
             for (int i = 0; i < size; ++i) {
                 if (array[i] != otherList.get(i)) {

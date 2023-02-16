@@ -24,7 +24,7 @@ public interface IntegerList {
 
     // Проверка на существование элемента.
     // Вернуть true/false;
-    boolean contains(Integer item);
+    boolean contains(int item);
 
     // Поиск элемента.
     // Вернуть индекс элемента или -1 в случае отсутствия.
@@ -32,7 +32,7 @@ public interface IntegerList {
 
     // Поиск элемента с конца.
     // Вернуть индекс элемента или -1 в случае отсутствия.
-    int lastIndexOf(Integer item);
+    int lastIndexOf(int item);
 
     // Получить элемент по индексу.
     // Вернуть элемент или исключение, если выходит за рамки фактического количества элементов.
