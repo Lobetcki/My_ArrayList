@@ -2,7 +2,6 @@ package myArrayList.model;
 
 import myArrayList.exeption.FoundNullException;
 import myArrayList.exeption.IndexNotFoundException;
-
 import java.util.Arrays;
 
 /* Реализация интерфейса StringList.
@@ -30,12 +29,8 @@ public class StringListImpl implements StringList {
                                                                  // Проверка на наличие индекса
     private void isThereIndex(int index) {
         if (index > size || index < 0)
-            throw new IndexNotFoundException("Index: "+index+", Size: "+size);
+            throw new IndexNotFoundException("Index: "+index+", Size: " + size);
     }
-
-//    private String outOfBoundsMsg(int index) {
-//        return "Index: "+index+", Size: "+size;
-//    }
 
                                                                  // Увеличение массива
     private String[] increasingArray() {
@@ -43,6 +38,12 @@ public class StringListImpl implements StringList {
         size++;
         if (array.length <= size) {
             System.arraycopy(array, 0, newArray20, 0, size);
+//                Первым параметром является массив-источник.
+//                Вторым параметром является позиция начала нового массива.
+//                Третий параметр — массив-назначения.
+//                Четвертый параметр является начальным положением целевого массива.
+//                Последний параметр это количество элементов, которые будут скопированы.
+
             array = newArray20;
         } else {
 
