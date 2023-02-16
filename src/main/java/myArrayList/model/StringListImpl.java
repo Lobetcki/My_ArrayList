@@ -144,7 +144,7 @@ public class StringListImpl implements StringList {
     // Вернуть индекс элемента или -1 в случае отсутствия.
     @Override
     public int lastIndexOf(String item) {
-        for (int i = size; i > 0; --i) {
+        for (int i = size; i >= 0; --i) {
             if (item.equals(array[i])) {
                 return i;
             }
