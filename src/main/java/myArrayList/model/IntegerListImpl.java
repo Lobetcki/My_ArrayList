@@ -19,6 +19,10 @@ public class IntegerListImpl implements IntegerList {
         this.array = new Integer[DEFAULT_CAPACITY];
     }
 
+    public IntegerListImpl(Integer[] array) {
+        this.array = array;
+    }
+
     public IntegerListImpl (int initialCapacity) {
         this.array = new Integer[initialCapacity];
     }
@@ -111,7 +115,39 @@ public class IntegerListImpl implements IntegerList {
         }
         return false;
     }
+                                                        // Сортировка
+    public void sortInsertion() {
+        for (int i = 1; i < array.length; i++) {
+            int temp = array[i];
+            int j = i;
+            while (j > 0 && array[j - 1] >= temp) {
+                array[j] = array[j - 1];
+                j--;
+            }
+            array[j] = temp;
+        }
+    }
+                                                    // Бинарный поиск
+    public boolean contains2(int element) {
+        sortInsertion();
+        int min = 0;
+        int max = array.length - 1;
 
+        while (min <= max) {
+            int mid = (min + max) / 2;
+
+            if (element == array[mid]) {
+                return true;
+            }
+
+            if (element < array[mid]) {
+                max = mid - 1;
+            } else {
+                min = mid + 1;
+            }
+        }
+        return false;
+    }
                                                                                         // Поиск элемента.
     // Вернуть индекс элемента или -1 в случае отсутствия.
     @Override
@@ -185,6 +221,8 @@ public class IntegerListImpl implements IntegerList {
         }
         return false;
     }
+
+
 
     @Override
     public String toString() {
