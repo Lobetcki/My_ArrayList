@@ -257,8 +257,6 @@ public class IntegerListImpl implements IntegerList {
         return false;
     }
 
-
-
     @Override
     public String toString() {
         return "IntegerListImpl{" +
