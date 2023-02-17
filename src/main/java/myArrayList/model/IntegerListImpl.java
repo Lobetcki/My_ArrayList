@@ -52,8 +52,6 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                                                 // Добавление элемента на определенную позицию списка.
-    // Если выходит за пределы фактического количества элементов или массива, выбросить исключение.
-    // Вернуть добавленный элемент в качестве результата выполнения.
     @Override
     public Integer add(int index, Integer item) {
         isThereIndex(index);
@@ -67,8 +65,6 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                             // Установить элемент на определенную позицию, затерев существующий.
-    // Выбросить исключение, если индекс больше фактического количества элементов
-    // или выходит за пределы массива.
     @Override
     public Integer set(int index, Integer item) {
         isThereIndex(index);
@@ -77,8 +73,6 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                                                                 // Удаление элемента.
-    // Вернуть удаленный элемент или исключение, если подобный
-    // элемент отсутствует в списке.
     @Override
     public Integer remove(int item) {
         try {
@@ -94,8 +88,6 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                                                         // Удаление элемента по индексу.
-    // Вернуть удаленный элемент или исключение, если подобный
-    // элемент отсутствует в списке.
     @Override
     public Integer removeIndex(int index) {
         isThereIndex(index);
@@ -105,7 +97,6 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                                                                 // Проверка на существование элемента.
-    // Вернуть true/false;
     @Override
     public boolean contains(int item) {
         for (int i = 0; i < size; ++i) {
@@ -116,8 +107,6 @@ public class IntegerListImpl implements IntegerList {
         return false;
     }
 
-   // Изменить реализацию сортировки на рекурсивную из последней шпаргалки.
-   // Выбор конкретной сортировки лежит на вас.
                                                         // Сортировка
     public void sortInsertion() {
 
@@ -200,7 +189,6 @@ public class IntegerListImpl implements IntegerList {
         return false;
     }
                                                                                         // Поиск элемента.
-    // Вернуть индекс элемента или -1 в случае отсутствия.
     @Override
     public int indexOf(Integer item) {
         for (int i = 0; i < size; ++i) {
@@ -212,7 +200,6 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                                                                 // Поиск элемента с конца.
-    // Вернуть индекс элемента или -1 в случае отсутствия.
     @Override
     public int lastIndexOf(int item) {
         for (int i = size; i >= 0; --i) {
@@ -224,8 +211,6 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                                                                     // Получить элемент по индексу.
-    // Вернуть элемент или исключение, если выходит за рамки фактического
-    // количества элементов.
     @Override
     public Integer get(int index) {
         isThereIndex(index);
@@ -259,7 +244,6 @@ public class IntegerListImpl implements IntegerList {
     }
 
                                                                                         // Сравнить текущий список с другим.
-    // Вернуть true/false или исключение, если передан null.
     @Override
     public boolean equalsArr(IntegerListImpl otherList) {
         if (otherList == null) throw new FoundNullException(" Список отсутствует ");
