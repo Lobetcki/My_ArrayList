@@ -10,110 +10,119 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
+                                                                        // Методы сортировки
+//    private static void swapElements(int[] arr, int indexA, int indexB) {
+//        int tmp = arr[indexA];
+//        arr[indexA] = arr[indexB];
+//        arr[indexB] = tmp;
+//    }
+//
+//    public static void sortBubble(int[] arr) {
+//        for (int i = 0; i < arr.length - 1; i++) {
+//            for (int j = 0; j < arr.length - 1 - i; j++) {
+//                if (arr[j] > arr[j + 1]) {
+//                    swapElements(arr, j, j + 1);
+//                }
+//            }
+//        }
+//    }
+//
+//    public static void sortSelection(int[] arr) {
+//        for (int i = 0; i < arr.length - 1; i++) {
+//            int minElementIndex = i;
+//            for (int j = i + 1; j < arr.length; j++) {
+//                if (arr[j] < arr[minElementIndex]) {
+//                    minElementIndex = j;
+//                }
+//            }
+//            swapElements(arr, i, minElementIndex);
+//        }
+//    }
+//
+//    public static void sortInsertion(int[] arr) {
+//        for (int i = 1; i < arr.length; i++) {
+//            int temp = arr[i];
+//            int j = i;
+//            while (j > 0 && arr[j - 1] >= temp) {
+//                arr[j] = arr[j - 1];
+//                j--;
+//            }
+//            arr[j] = temp;
+//        }
+//    }
 
-    private static void swapElements(int[] arr, int indexA, int indexB) {
-        int tmp = arr[indexA];
-        arr[indexA] = arr[indexB];
-        arr[indexB] = tmp;
-    }
-
-    public static void sortBubble(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    swapElements(arr, j, j + 1);
-                }
-            }
-        }
-    }
-
-    public static void sortSelection(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            int minElementIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[minElementIndex]) {
-                    minElementIndex = j;
-                }
-            }
-            swapElements(arr, i, minElementIndex);
-        }
-    }
-
-    public static void sortInsertion(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            int temp = arr[i];
-            int j = i;
-            while (j > 0 && arr[j - 1] >= temp) {
-                arr[j] = arr[j - 1];
-                j--;
-            }
-            arr[j] = temp;
-        }
-    }
 
     public static void main(String[] args) {
 
-
-
         Random random = new Random(); // Массивы рандомных чисел
+        int asd = 100_000;
+        //        IntegerListImpl integerListImpl = new IntegerListImpl();
+//        IntegerListImpl integerListImpl = new IntegerListImpl(asd);
+//
+//        for (int i = 0; i < asd; i++) {
+//            integerListImpl.add(random.nextInt(asd));
+//        }
+//
+//        IntegerListImpl integerListImpl5 = new IntegerListImpl(integerListImpl.size());
+//        for (int i = 0; i < integerListImpl.size(); i++) {
+//            integerListImpl5.add(integerListImpl.get(i));
+//        }
+//
+//       // integerListImpl5.sortInsertion();
+//
+//        System.out.println(integerListImpl5);
 
-        int[] randomArray1 = new int[100_000];
+       // integerListImpl.sortInsertion();
+
+
+
+//        long start4 = System.currentTimeMillis();
+//        System.out.println(integerListImpl.contains2(75));
+//        System.out.println(System.currentTimeMillis() - start4);
+//
+//        System.out.println(integerListImpl);
+
+                                                            //  Самый быстрый метод сортировки
+        Integer[] randomArray1 = new Integer[100];
 
         for (int i = 0; i < randomArray1.length; i++) {
             randomArray1[i] = random.nextInt();
         }
 
-
-        int[] randomArray2 = Arrays.copyOf(randomArray1, randomArray1.length);
-
-        int[] randomArray3 = Arrays.copyOf(randomArray1, randomArray1.length);
-
-
         long start1 = System.currentTimeMillis();
-        sortBubble(randomArray1);
+        IntegerListImpl.mergeSort(randomArray1);
         System.out.println(System.currentTimeMillis() - start1);
 
-        long start2 = System.currentTimeMillis();
-        sortSelection(randomArray2);
-        System.out.println(System.currentTimeMillis() - start2);
+        System.out.println(Arrays.toString(randomArray1));
 
-        long start3 = System.currentTimeMillis();
-        sortInsertion(randomArray3);
-        System.out.println(System.currentTimeMillis() - start3);
-
-
-//        IntegerListImpl integerListImpl = new IntegerListImpl();
-        IntegerListImpl integerListImpl = new IntegerListImpl(100_000);
-
-        for (int i = 0; i < 100_000; i++) {
-            integerListImpl.add(random.nextInt());
-        }
-
-        long start4 = System.currentTimeMillis();
-        integerListImpl.contains2(56_658);
-        System.out.println(System.currentTimeMillis() - start4);
-
-
-//        System.out.println(integerListImpl);
-
-
-
-
-
-//        System.out.println(integerListImpl.add(5));
-//        System.out.println(integerListImpl.add(65));
-//        System.out.println(integerListImpl.add(84));
-//        System.out.println(integerListImpl.add(321));
-//        System.out.println(integerListImpl.add(684));
-//        System.out.println(integerListImpl.add(65));
-//        System.out.println(integerListImpl.add(784));
-//        System.out.println(integerListImpl.add(9847));
-//        System.out.println(integerListImpl.add(584));
-//        System.out.println(integerListImpl.add(9874));
+//        int[] randomArray2 = Arrays.copyOf(randomArray1, randomArray1.length);
 //
-//        System.out.println(integerListImpl.add(684));
-//        System.out.println(integerListImpl.add(165));
+//        int[] randomArray3 = Arrays.copyOf(randomArray1, randomArray1.length);
+
+
+
+
+
+//        long start1 = System.currentTimeMillis();
+//        sortBubble(randomArray1);
+//        System.out.println(System.currentTimeMillis() - start1);
 //
+//        long start2 = System.currentTimeMillis();
+//        sortSelection(randomArray2);
+//        System.out.println(System.currentTimeMillis() - start2);
+//
+//        long start3 = System.currentTimeMillis();
+//        sortInsertion(randomArray3);
+//        System.out.println(System.currentTimeMillis() - start3);
+
+
+
+
+
+
+
+
+
 //        //        System.out.println(integerListImpl.add(null));
 //        System.out.println(integerListImpl);
 //

@@ -115,21 +115,72 @@ public class IntegerListImpl implements IntegerList {
         }
         return false;
     }
+
+   // Изменить реализацию сортировки на рекурсивную из последней шпаргалки.
+   // Выбор конкретной сортировки лежит на вас.
                                                         // Сортировка
     public void sortInsertion() {
+
         for (int i = 1; i < array.length; i++) {
+
             int temp = array[i];
             int j = i;
+
             while (j > 0 && array[j - 1] >= temp) {
                 array[j] = array[j - 1];
                 j--;
             }
+
             array[j] = temp;
         }
     }
+                                                        // Рукурсивная сортировка
+    public static void mergeSort(Integer[] arr) {
+        if (arr.length < 2) {
+            return;
+        }
+        int mid = arr.length / 2;
+        Integer[] left = new Integer[mid];
+        Integer[] right = new Integer[arr.length - mid];
+
+        for (int i = 0; i < left.length; i++) {
+            left[i] = arr[i];
+        }
+
+        for (int i = 0; i < right.length; i++) {
+            right[i] = arr[mid + i];
+        }
+
+        mergeSort(left);
+        mergeSort(right);
+
+        merge(arr, left, right);
+    }
+                                                        // MERGE
+    public static void merge(Integer[] arr, Integer[] left, Integer[] right) {
+
+        int mainP = 0;
+        int leftP = 0;
+        int rightP = 0;
+        while (leftP < left.length && rightP < right.length) {
+            if (left[leftP] <= right[rightP]) {
+                arr[mainP++] = left[leftP++];
+            } else {
+                arr[mainP++] = right[rightP++];
+            }
+        }
+        while (leftP < left.length) {
+            arr[mainP++] = left[leftP++];
+        }
+        while (rightP < right.length) {
+            arr[mainP++] = right[rightP++];
+        }
+    }
+
+
                                                     // Бинарный поиск
     public boolean contains2(int element) {
-        sortInsertion();
+        mergeSort(array);
         int min = 0;
         int max = array.length - 1;
 

@@ -62,8 +62,6 @@ public class StringListImpl implements StringList {
         isThereNull(item);
         increasingArray();
 
-        //String[] newArray = new String[array.length];
-            //System.arraycopy(this.array, index, newArray, 0, (size - index));
             System.arraycopy(array, index, array, index + 1, (size - index));
             array[index] = item;
         return array[index];
